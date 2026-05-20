@@ -52,8 +52,8 @@
         /></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="#scroll-to-work">Work</a></li>
-          <li><a href="online-games.html">Online Games</a></li>
           <li><a href="#scroll-to-about">About</a></li>
+          <li><a href="resume.pdf" target="_blank">Resume</a></li>
           <li>
             <a href="https://medium.com/@sinhaankur827" target="_blank" rel="noopener"
               >Blog</a
@@ -63,8 +63,8 @@
 
         <ul id="nav-mobile" class="sidenav">
           <li><a href="#scroll-to-work">Work</a></li>
-          <li><a href="online-games.html">Online Games</a></li>
           <li><a href="#scroll-to-about">About</a></li>
+          <li><a href="resume.pdf" target="_blank">Resume</a></li>
           <li>
             <a href="https://medium.com/@sinhaankur827" target="_blank" rel="noopener"
               >Blog</a
@@ -79,25 +79,28 @@
     <div class="bg">
       <div class="container">
         <div class="hero-home">
-          <div id="home-pic-container" class="hide-on-small-and-down hero-animate">
-            <img src="img/iphone.svg" id="iphone-svg" alt="iPhone mockup" />
-            <div class="screen-content"></div>
-          </div>
-
-          <div class="intro hide-on-med-and-up hero-animate">
+          <div class="intro hero-animate">
             <a href="#"><img src="img/logo.svg" id="logo" alt="Ankur Sinha logo" /></a>
             <h4>Ankur Sinha</h4>
-            <h5 style="font-weight: 400">UX Designer</h5>
-            <br /><br />
+            <h5 style="font-weight: 400">Principal UX Designer · Human × AI · Toronto</h5>
+            <p class="hero-tagline">
+              12+ years turning complex enterprise systems into experiences operators actually understand.
+              Currently designing AI-assisted database operations at Oracle, and building
+              <a href="https://github.com/unhosted-ai" target="_blank" rel="noopener">Unhosted</a>
+              on evenings and weekends.
+            </p>
 
-            <a href="#scroll-to-work" id="work-chip">
+            <a href="#scroll-to-work">
               <div class="chip">Recent work</div>
-            </a>
-            <a href="https://medium.com/@sinhaankur827" target="_blank" rel="noopener">
-              <div class="chip">Blog</div>
             </a>
             <a href="#scroll-to-about">
               <div class="chip">About</div>
+            </a>
+            <a href="resume.pdf" target="_blank">
+              <div class="chip">Resume</div>
+            </a>
+            <a href="https://medium.com/@sinhaankur827" target="_blank" rel="noopener">
+              <div class="chip">Blog</div>
             </a>
           </div>
         </div>
@@ -390,45 +393,9 @@
       <blockquote class="reveal">
         <p class="left-align xxx-large-text">
           Let's build great products
-          <a href="#" class="link-color drift-open-chat">together.</a>
+          <a href="mailto:sinhaankur827@gmail.com?Subject=Let's%20build%20together" class="link-color">together.</a>
         </p>
       </blockquote>
-
-      <script>
-        (function () {
-          var DRIFT_CHAT_SELECTOR = ".drift-open-chat";
-
-          function ready(fn) {
-            if (document.readyState != "loading") {
-              fn();
-            } else if (document.addEventListener) {
-              document.addEventListener("DOMContentLoaded", fn);
-            } else {
-              document.attachEvent("onreadystatechange", function () {
-                if (document.readyState != "loading") fn();
-              });
-            }
-          }
-
-          function forEachElement(selector, fn) {
-            var elements = document.querySelectorAll(selector);
-            for (var i = 0; i < elements.length; i++) fn(elements[i], i);
-          }
-          function openSidebar(driftApi, event) {
-            event.preventDefault();
-            driftApi.sidebar.open();
-            return false;
-          }
-          ready(function () {
-            drift.on("ready", function (api) {
-              var handleClick = openSidebar.bind(this, api);
-              forEachElement(DRIFT_CHAT_SELECTOR, function (el) {
-                el.addEventListener("click", handleClick);
-              });
-            });
-          });
-        })();
-      </script>
 
       <div class="x-small-spacer"></div>
 
