@@ -2,20 +2,20 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="UX and Interaction Design portfolio of Ankur Sinha — designing usable products across enterprise, e-commerce and consumer." />
+    <meta name="theme-color" content="#546de5" />
     <meta
       property="og:site_name"
       content="UX and Interaction design portfolio of Ankur Sinha"
     />
-    <meta property="og:title" content="Ankur Sinha" />
-    <meta property="og:image" content="camera-header.png" />
-    <meta property="og:type" content="portfolio" />
+    <meta property="og:title" content="Ankur Sinha — UX Designer" />
+    <meta property="og:description" content="UX and Interaction Design portfolio of Ankur Sinha." />
+    <meta property="og:image" content="img/camera-header.png" />
+    <meta property="og:type" content="website" />
 
     <link rel="icon" href="img/logo.png" />
-    <title>Ankur sinha</title>
+    <title>Ankur Sinha — UX Designer</title>
 
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -47,15 +47,15 @@
   <body>
     <nav class="white" role="navigation">
       <div class="nav-wrapper container">
-        <a id="logo-container" href="#" class="brand-logo"
-          ><img src="img/logo.svg" id="nav-logo"
+        <a id="logo-container" href="#" class="brand-logo" aria-label="Home"
+          ><img src="img/logo.svg" id="nav-logo" alt="Ankur Sinha logo"
         /></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="#scroll-to-work">Work</a></li>
           <li><a href="online-games.html">Online Games</a></li>
           <li><a href="#scroll-to-about">About</a></li>
           <li>
-            <a href="https://medium.com/@sinhaankur827" target="_blank"
+            <a href="https://medium.com/@sinhaankur827" target="_blank" rel="noopener"
               >Blog</a
             >
           </li>
@@ -66,12 +66,12 @@
           <li><a href="online-games.html">Online Games</a></li>
           <li><a href="#scroll-to-about">About</a></li>
           <li>
-            <a href="https://medium.com/@sinhaankur827" target="_blank"
+            <a href="https://medium.com/@sinhaankur827" target="_blank" rel="noopener"
               >Blog</a
             >
           </li>
         </ul>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger"
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger" aria-label="Open menu"
           ><i class="material-icons">menu</i></a
         >
       </div>
@@ -79,24 +79,24 @@
     <div class="bg">
       <div class="container">
         <div class="hero-home">
-          <div id="home-pic-container" class="hide-on-small-and-down">
-            <img src="img/iphone.svg" id="iphone-svg" />
+          <div id="home-pic-container" class="hide-on-small-and-down hero-animate">
+            <img src="img/iphone.svg" id="iphone-svg" alt="iPhone mockup" />
             <div class="screen-content"></div>
           </div>
 
-          <div class="intro hide-on-med-and-up">
-            <a href="#"><img src="img/logo.svg" id="logo" /></a>
+          <div class="intro hide-on-med-and-up hero-animate">
+            <a href="#"><img src="img/logo.svg" id="logo" alt="Ankur Sinha logo" /></a>
             <h4>Ankur Sinha</h4>
             <h5 style="font-weight: 400">UX Designer</h5>
             <br /><br />
 
-            <a href="#" id="work-chip">
+            <a href="#scroll-to-work" id="work-chip">
               <div class="chip">Recent work</div>
             </a>
-            <a href="https://medium.com/@sinhaankur827" target="_blank">
-              <div class="chip">Ignored Blog</div>
+            <a href="https://medium.com/@sinhaankur827" target="_blank" rel="noopener">
+              <div class="chip">Blog</div>
             </a>
-            <a href="#scroll-to-work">
+            <a href="#scroll-to-about">
               <div class="chip">About</div>
             </a>
           </div>
@@ -108,7 +108,7 @@
 
     <div class="container">
       <div class="section">
-        <div class="row center-align">
+        <div class="row center-align reveal">
           <div class="col l3 s12"></div>
 
           <div class="col l6 s12">
@@ -128,15 +128,14 @@
           <div class="col l3 s12"></div>
         </div>
 
-        <div class="row center-align">
+        <div class="row center-align reveal">
           <div class="col l3 s12"></div>
 
           <div
             class="col l6 s12 card-hover-hero"
             style="padding: 3.5% !important; background-color: #000000"
-            onclick="window.open('https://play.google.com/store/apps/details?id=com.google.android.GoogleCamera&hl=en_US', '_blank')"
           >
-            <img src="img/Oracle.png" class="responsive-img" />
+            <img src="img/Oracle.png" class="responsive-img" alt="Oracle Autonomous Database tool screenshot" loading="lazy" />
           </div>
 
           <div class="col l3 s12"></div>
@@ -152,7 +151,7 @@
             "
           ></div>
         </div>
-        <div class="row center-align">
+        <div class="row center-align reveal">
           <div class="col l3 s12"></div>
 
           <div class="col l6 s12">
@@ -170,13 +169,16 @@
           <div class="col l3 s12"></div>
         </div>
 
-        <div class="row center-align">
+        <div class="row center-align reveal">
           <div class="col l1 s12"></div>
 
           <div
             class="col l10 s12 card-hover"
             style="padding: 3.5% !important"
             onclick="window.open('https://ads.google.com/home/', '_blank')"
+            role="link"
+            tabindex="0"
+            aria-label="Open Google Ads home"
           >
             <div
               style="
@@ -191,8 +193,9 @@
                 height="100%"
                 style="position: absolute; top: 0; left: 0; border: 0"
                 src="https://www.youtube.com/embed/v1KngrLzL1Y?controls=0"
-                title="YouTube video player"
+                title="Discovery ads for Google Ads — video"
                 frameborder="0"
+                loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
               ></iframe>
@@ -212,7 +215,7 @@
             "
           ></div>
         </div>
-        <div class="row center-align">
+        <div class="row center-align reveal">
           <div class="col l3 s12"></div>
 
           <div class="col l6 s12">
@@ -230,13 +233,16 @@
           <div class="col l3 s12"></div>
         </div>
 
-        <div class="row center-align">
+        <div class="row center-align reveal">
           <div
             class="col s12 card-hover"
             style="padding: 3.5% !important"
             onclick="window.open('projects/walmart.html', '_blank')"
+            role="link"
+            tabindex="0"
+            aria-label="Open Walmart Labs case study"
           >
-            <img src="img/pangea-splash.png" class="responsive-img" />
+            <img src="img/pangea-splash.png" class="responsive-img" alt="Walmart Labs Pangea project splash" loading="lazy" />
           </div>
         </div>
 
@@ -250,7 +256,7 @@
             "
           ></div>
         </div>
-        <div class="row center-align">
+        <div class="row center-align reveal">
           <div class="col l3 s12"></div>
 
           <div class="col l6 s12">
@@ -268,15 +274,18 @@
           <div class="col l3 s12"></div>
         </div>
 
-        <div class="row center-align">
+        <div class="row center-align reveal">
           <div class="col l1 s12"></div>
 
           <div
             class="col l10 s12 card-hover"
             style="padding: 3.5% !important"
             onclick="window.open('https://medium.com/designer-recipes/groupordering-ubereats-c8bdd52e7268', '_blank')"
+            role="link"
+            tabindex="0"
+            aria-label="Read UberEats group ordering case study"
           >
-            <img src="img/ubereats-thumbnail.png" class="responsive-img" />
+            <img src="img/ubereats-thumbnail.png" class="responsive-img" alt="UberEats group ordering case study thumbnail" loading="lazy" />
           </div>
 
           <div class="col l1 s12"></div>
@@ -285,10 +294,10 @@
 
       <div class="spacer" id="scroll-to-about"></div>
 
-      <blockquote>
+      <blockquote class="reveal">
         <p class="left-align xxx-large-text">
-          Before UX, I spent a year working as techincal Support and most of the
-          calls were about users unable to understand the complex eco-system.
+          Before UX, I spent a year working as technical support and most of the
+          calls were about users unable to understand the complex ecosystem.
 
           <br /><br />
 
@@ -306,20 +315,22 @@
       <div class="spacer"></div>
       <div class="small-spacer"></div>
 
-      <div class="row">
+      <div class="row reveal">
         <img
           src="img/about-img.JPG"
-          alt="404"
+          alt="Portrait of Ankur Sinha"
           class="col s12 l5 responsive-img about-img-shadow"
           style="margin-top: 280px"
+          loading="lazy"
         />
 
         <div class="col s12 l2"></div>
 
         <img
           src="img/storystrips.jpg"
-          alt="404"
+          alt="Storyboard strips from a design exploration"
           class="col s12 l5 responsive-img about-img-shadow"
+          loading="lazy"
         />
 
         </div>
@@ -327,10 +338,10 @@
       <div class="spacer"></div>
       <div class="small-spacer"></div>
 
-      <blockquote>
+      <blockquote class="reveal">
         <p class="left-align xxx-large-text">
           On the side, I mentor new designers and manage a
-          <a href="https://medium.com/sinhaankur27" target="_blank">
+          <a href="https://medium.com/sinhaankur27" target="_blank" rel="noopener">
             design publication
           </a>
           with a goal of documenting exploratory projects and inspiring young
@@ -343,10 +354,10 @@
 
       <div class="x-small-spacer"></div>
 
-      <blockquote>
+      <blockquote class="reveal">
         <p class="left-align xxx-large-text">
           Let's build great products
-          <a href="" class="link-color drift-open-chat">together.</a>
+          <a href="#" class="link-color drift-open-chat">together.</a>
         </p>
       </blockquote>
 
@@ -424,11 +435,65 @@
       <div class="spacer"></div>
       </div>
 
+    <button id="back-to-top" type="button" aria-label="Back to top" title="Back to top">
+      <i class="material-icons">arrow_upward</i>
+    </button>
+
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/jquery.fbmessenger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.1/TweenMax.min.js"></script>
     <script src="js/materialize.js"></script>
     <script src="js/bot.js"></script>
     <script src="js/init.js"></script>
+    <script>
+      // Scroll-in reveal animations (respect reduced motion)
+      (function () {
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var els = document.querySelectorAll('.reveal');
+        if (reduced || !('IntersectionObserver' in window)) {
+          for (var i = 0; i < els.length; i++) els[i].classList.add('is-visible');
+          return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        els.forEach(function (el) { io.observe(el); });
+      })();
+
+      // Nav shadow on scroll + back-to-top visibility
+      (function () {
+        var nav = document.querySelector('nav');
+        var btn = document.getElementById('back-to-top');
+        function onScroll() {
+          var y = window.pageYOffset || document.documentElement.scrollTop;
+          if (nav) nav.classList.toggle('nav-scrolled', y > 8);
+          if (btn) btn.classList.toggle('is-visible', y > 480);
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+        if (btn) {
+          btn.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        }
+      })();
+
+      // Keyboard activation for clickable cards
+      (function () {
+        document.querySelectorAll('[role="link"][onclick]').forEach(function (el) {
+          el.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              el.click();
+            }
+          });
+        });
+      })();
+    </script>
   </body>
 </html>
