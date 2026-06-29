@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <link rel="icon" href="../../img/logo.png">
+  <title>Cognitive Twin — a local-first AI agent</title>
+  <meta name="description" content="A personal AI twin that runs entirely on your own machine — a persona you shape, a loved one's cloned voice, private memory, and a proactive agent that reaches out first.">
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+  <link href="../../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <style>
+    /* Terminal-style blocks for the agent screenshots/demos */
+    .term {
+      background: #0d0d0f; color: #e6e6e6; border-radius: 10px;
+      padding: 22px 24px; font-family: "SF Mono", Menlo, Consolas, monospace;
+      font-size: 14px; line-height: 1.7; text-align: left; overflow-x: auto;
+      box-shadow: 0 8px 30px rgba(0,0,0,.18);
+    }
+    .term .who { color: #7fd1b9; }       /* twin name / prompt */
+    .term .think { color: #f3c969; }     /* the away-thought */
+    .term .muted { color: #8a8a8a; }
+    .term .cmd { color: #9ecbff; }
+    .shot-placeholder {
+      border: 2px dashed #cfcfcf; border-radius: 10px; padding: 40px;
+      color: #9a9a9a; text-align: center; font-style: italic;
+    }
+    .feature-chip {
+      display: inline-block; padding: 6px 14px; margin: 4px;
+      border-radius: 999px; background: #f0f4ff; color: #2b59ff; font-size: 14px;
+    }
+  </style>
+
+  <script src="../../js/analytics.js"></script>
+</head>
+<body>
+    <div class="navbar-fixed">
+      <nav class="lighten-1" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="../../index.html#scroll-to-work" class="brand-logo"><img src="../../img/logo.svg"></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="../../index.html#scroll-to-about">About</a></li>
+            <li><a href="https://medium.com/@Ankurgupta" target="_blank">Writing</a></li>
+            <li><a href="../../resume.pdf" target="_blank">Resume</a></li>
+          </ul>
+          <ul id="nav-mobile" class="side-nav">
+            <li><a href="../../index.html#scroll-to-about">About</a></li>
+            <li><a href="https://medium.com/@Ankurgupta" target="_blank">Writing</a></li>
+            <li><a href="../../resume.pdf" target="_blank">Resume</a></li>
+          </ul>
+          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons" style="color:#424242;">menu</i></a>
+        </div>
+      </nav>
+    </div><br>
+
+    <div class="container">
+        <div class="spacer"></div>
+
+        <!-- Page title -->
+        <div class="work-header center-align">
+            <h1 class="responsive-img" style="font-weight:600;">Cognitive Twin</h1>
+            <h5 style="font-weight:400;">A personal AI agent that runs entirely on your own machine.</h5>
+            <div class="small-spacer"></div>
+            <span class="feature-chip">Local-first</span>
+            <span class="feature-chip">Private by default</span>
+            <span class="feature-chip">A loved one's cloned voice</span>
+            <span class="feature-chip">Proactive, not static</span>
+            <span class="feature-chip">Open source · AGPL-3.0</span>
+        </div>
+
+        <div class="small-spacer"></div>
+
+        <div id="work">
+            <p class="x-large-text">
+              <b>Cognitive Twin</b> is a digital version of someone you shape — or
+              of someone you love. It learns who they are (a persona you create),
+              can <b>speak in their actual voice</b> (cloned locally from a
+              recording), remembers how you behave, reasons with a local model, and
+              <b>reaches out first</b>. Nothing leaves your machine unless you allow it.
+            </p>
+
+            <p class="x-large-text">
+              I started it for a personal reason: it can carry a loved one's warmth
+              forward, in their own voice, on hardware you own. From there it grew
+              into a broader idea — not a static assistant that only answers when
+              asked, but something closer to <b>an agent that knows you and thinks
+              on its own</b>.
+            </p>
+
+            <div class="x-small-spacer"></div>
+
+            <!-- ============ The anti-Siri moment ============ -->
+            <div><h5>It reaches out first</h5><hr class="underline left"></div>
+            <br>
+            <p class="x-large-text">
+              Open a chat and the twin speaks before you do — a time-aware hello in
+              their voice, a thought it had <i>while you were away</i>, and a light
+              nudge about your day. All from local context.
+            </p>
+
+            <div class="term">
+              <span class="who">Good evening. It's Anita.</span><br>
+              <span class="think">I was thinking — Rust's async/await is a beautiful solution for ownership and concurrency; maybe we explore it more when you're back.</span><br>
+              <span class="muted">(talking to Anita · type a message, /help for commands, /exit to leave)</span>
+            </div>
+            <p class="muted center-align" style="margin-top:8px;">▲ replace with a screenshot of your terminal — <span class="cmd">python -m cognitive_twin</span></p>
+
+            <div class="small-spacer"></div>
+
+            <!-- ============ Keeps thinking ============ -->
+            <div><h5>It keeps thinking while you're away</h5><hr class="underline left"></div>
+            <br>
+            <p class="x-large-text">
+              A background loop mulls the projects you actually keep raising and
+              saves a fresh thought for next time — the “JARVIS keeps working”
+              feel, entirely on-device.
+            </p>
+            <div class="term">
+              <span class="muted">$</span> <span class="cmd">python -m cognitive_twin reflect --watch 30</span><br>
+              &nbsp;&nbsp;Anita is thinking in the background (every 30 min). Ctrl-C to stop.<br>
+              &nbsp;&nbsp;<span class="think">💭 What if your local-first agent routed each request to the smallest model that can handle it?</span>
+            </div>
+
+            <div class="small-spacer"></div>
+
+            <!-- ============ Multiple twins ============ -->
+            <div><h5>More than one twin — and switch live</h5><hr class="underline left"></div>
+            <br>
+            <p class="x-large-text">
+              Keep a twin for different people, each with its own persona, voice,
+              and memory. Switch mid-conversation; the prompt changes to whoever
+              you're talking to. Some twins stay strictly private to your machine.
+            </p>
+            <div class="term">
+              <span class="who">Anita »</span> /twins<br>
+              &nbsp;&nbsp;<span class="muted">twins: *anita, dad &nbsp; (* = active)</span><br>
+              <span class="who">Anita »</span> /use dad<br>
+              &nbsp;&nbsp;now talking to Dad.<br>
+              <span class="who">Dad »</span>
+            </div>
+
+            <div class="small-spacer"></div>
+
+            <!-- ============ Her voice ============ -->
+            <div><h5>Their actual voice — cloned locally</h5><hr class="underline left"></div>
+            <br>
+            <p class="x-large-text">
+              From a short recording, the twin can speak every reply in a loved
+              one's real voice (Coqui XTTS-v2, on-device). The recording never
+              leaves your computer.
+            </p>
+            <div class="shot-placeholder">screenshot: the Siri-style voice UI &nbsp;·&nbsp; <span class="cmd">python -m cognitive_twin voice --web</span></div>
+
+            <div class="small-spacer"></div>
+
+            <!-- ============ Set up in a minute ============ -->
+            <div><h5>Anyone can set one up</h5><hr class="underline left"></div>
+            <br>
+            <p class="x-large-text">
+              A guided first-run walks you through naming the twin, describing who
+              they are, and (optionally) giving them a voice — no flags, no config.
+            </p>
+            <div class="term">
+              <span class="muted">$</span> <span class="cmd">python -m cognitive_twin setup</span><br>
+              &nbsp;&nbsp;Welcome. Let's set up your twin — a digital version of someone<br>
+              &nbsp;&nbsp;you care about, living entirely on this machine.<br>
+              &nbsp;&nbsp;<span class="muted">What's their name (e.g. Anita):</span>
+            </div>
+
+            <div class="spacer"></div>
+
+            <blockquote><p class="left-align xxx-large-text">Local models already handle a large share of everyday queries. The gap is the <b>software around them</b> — a persona, a voice, memory, and a loop that turns “do X” into real action, privately, on hardware you own.</p></blockquote>
+
+            <div class="spacer"></div>
+
+            <!-- ============ How it works ============ -->
+            <div><h5>How it works</h5><hr class="underline left"></div><br>
+            <ul class="collection">
+              <li class="collection-item"><b>Persona</b> — an editable profile (name, traits, likes, values, style) compiled into the system prompt, so it reasons and speaks as that person.</li>
+              <li class="collection-item"><b>Private memory</b> — learns your recurring interests on-device; a single owner-only file, no telemetry.</li>
+              <li class="collection-item"><b>Model routing</b> — picks the right local model per request by policy (Ollama / LM Studio / Apple Intelligence / Unhosted).</li>
+              <li class="collection-item"><b>Proactive loop</b> — background reflection saves fresh thoughts between sessions; the chat opens with them.</li>
+              <li class="collection-item"><b>Permissioned senses</b> — web, screen, camera, and mic are each off by default and confirmed per use.</li>
+              <li class="collection-item"><b>Runs everywhere</b> — a shared Rust core compiles to macOS, iOS, Windows, Linux, Android, and the web.</li>
+            </ul>
+
+            <div class="small-spacer"></div>
+
+            <div><h5>Part of a bigger idea</h5><hr class="underline left"></div><br>
+            <p class="x-large-text">
+              The twin also merges into <a href="https://github.com/unhosted-ai/unhosted-core" target="_blank">Unhosted</a>
+              — a local inference cluster that pools the hardware you already own.
+              There, “Cognitive Twin” becomes a capability you simply enable.
+            </p>
+
+            <div class="spacer"></div>
+            <div class="row center">
+              <a class="btn-large waves-effect waves-light theme-color" href="https://github.com/sinhaankur/cognitive-twin-agent" target="_blank">View on GitHub</a>
+            </div>
+            <div class="spacer"></div>
+        </div>
+    </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.1/TweenMax.min.js"></script>
+  <script src="../../js/materialize.js"></script>
+  <script src="../../js/init.js"></script>
+  </body>
+</html>
