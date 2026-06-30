@@ -33,6 +33,34 @@
       display: inline-block; padding: 6px 14px; margin: 4px;
       border-radius: 999px; background: #f0f4ff; color: #2b59ff; font-size: 14px;
     }
+
+    /* ===== Visualize Engine ===== */
+    .viz {
+      background: #0b0c10; border-radius: 14px; padding: 26px; color: #e6e6e6;
+      box-shadow: 0 10px 36px rgba(0,0,0,.22); overflow: hidden;
+    }
+    .viz-tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
+    .viz-tab {
+      padding:8px 16px; border-radius:999px; background:#16181f; color:#9aa0aa;
+      cursor:pointer; font-size:14px; user-select:none; transition:.2s;
+    }
+    .viz-tab.active { background:#2b59ff; color:#fff; }
+    .viz-panel { display:none; }
+    .viz-panel.active { display:block; }
+    .viz svg { width:100%; height:auto; display:block; }
+    /* reasoning trace */
+    .viz-node rect, .viz-node circle { transition: .3s; }
+    .viz-step { opacity:.25; transition: opacity .4s; }
+    .viz-step.lit { opacity:1; }
+    .viz-flow { stroke:#2b59ff; stroke-width:2; fill:none; stroke-dasharray:6 6;
+      animation: dash 1s linear infinite; }
+    @keyframes dash { to { stroke-dashoffset:-12; } }
+    .viz-cap { color:#8a8a8a; font-size:13px; text-align:center; margin-top:10px; }
+    .viz-replay {
+      margin-top:14px; padding:8px 18px; border-radius:999px; border:none;
+      background:#2b59ff; color:#fff; cursor:pointer; font-size:14px;
+    }
+    .viz-legend { font-size:12px; color:#8a8a8a; margin-top:8px; text-align:center; }
   </style>
 
   <script src="../../js/analytics.js"></script>
@@ -176,6 +204,102 @@
 
             <div class="spacer"></div>
 
+            <!-- ============ Visualize Engine ============ -->
+            <div><h5>See how it thinks — the Visualize Engine</h5><hr class="underline left"></div>
+            <br>
+            <p class="x-large-text">
+              Most assistants are a black box. Cognitive Twin lets you <b>watch it
+              reason</b>: which model it picked, the memory and persona it pulled
+              in, the tools it ran, and the answer it built — plus the connected
+              knowledge it has grown and its inner state.
+            </p>
+
+            <div class="viz">
+              <div class="viz-tabs">
+                <div class="viz-tab active" data-viz="trace">Reasoning trace</div>
+                <div class="viz-tab" data-viz="graph">Knowledge graph</div>
+                <div class="viz-tab" data-viz="soul">Inner state</div>
+              </div>
+
+              <!-- 1) Reasoning trace -->
+              <div class="viz-panel active" id="viz-trace">
+                <svg viewBox="0 0 760 230" role="img" aria-label="reasoning trace">
+                  <!-- flow lines -->
+                  <path class="viz-flow" d="M120,60 H250"/>
+                  <path class="viz-flow" d="M370,60 H500"/>
+                  <path class="viz-flow" d="M620,60 V120 H120 V170"/>
+                  <path class="viz-flow" d="M120,170 H250"/>
+                  <path class="viz-flow" d="M370,170 H500"/>
+                  <!-- step 1: request + route -->
+                  <g class="viz-step" data-i="0">
+                    <rect x="20" y="38" width="100" height="44" rx="9" fill="#16181f" stroke="#2b59ff"/>
+                    <text x="70" y="56" fill="#e6e6e6" font-size="12" text-anchor="middle">your message</text>
+                    <text x="70" y="72" fill="#8a8a8a" font-size="11" text-anchor="middle">“what stack?”</text>
+                  </g>
+                  <g class="viz-step" data-i="1">
+                    <rect x="250" y="38" width="120" height="44" rx="9" fill="#16181f" stroke="#7fd1b9"/>
+                    <text x="310" y="56" fill="#e6e6e6" font-size="12" text-anchor="middle">model routing</text>
+                    <text x="310" y="72" fill="#7fd1b9" font-size="11" text-anchor="middle">→ qwen2.5 (local)</text>
+                  </g>
+                  <g class="viz-step" data-i="2">
+                    <rect x="500" y="38" width="120" height="44" rx="9" fill="#16181f" stroke="#f3c969"/>
+                    <text x="560" y="56" fill="#e6e6e6" font-size="12" text-anchor="middle">persona + memory</text>
+                    <text x="560" y="72" fill="#f3c969" font-size="11" text-anchor="middle">“likes Rust, privacy”</text>
+                  </g>
+                  <!-- step 4: tool -->
+                  <g class="viz-step" data-i="3">
+                    <rect x="250" y="148" width="120" height="44" rx="9" fill="#16181f" stroke="#c98bff"/>
+                    <text x="310" y="166" fill="#e6e6e6" font-size="12" text-anchor="middle">tool call</text>
+                    <text x="310" y="182" fill="#c98bff" font-size="11" text-anchor="middle">web_search</text>
+                  </g>
+                  <!-- step 5: answer -->
+                  <g class="viz-step" data-i="4">
+                    <rect x="500" y="148" width="120" height="44" rx="9" fill="#16181f" stroke="#2bbb6b"/>
+                    <text x="560" y="166" fill="#e6e6e6" font-size="12" text-anchor="middle">answer</text>
+                    <text x="560" y="182" fill="#2bbb6b" font-size="11" text-anchor="middle">in their voice</text>
+                  </g>
+                </svg>
+                <div class="viz-cap">A request flows: routed to a local model → persona + memory folded in → tool run → answered as the twin.</div>
+                <div class="center-align"><button class="viz-replay" id="viz-replay">▶ replay</button></div>
+              </div>
+
+              <!-- 2) Knowledge graph -->
+              <div class="viz-panel" id="viz-graph">
+                <svg viewBox="0 0 760 280" id="viz-graph-svg" role="img" aria-label="knowledge graph"></svg>
+                <div class="viz-cap">Memory grows into a connected web — each new note pulls in related ones, so recall gets stronger over time.</div>
+                <div class="viz-legend">● topics &nbsp; ● reflections &nbsp; lines = connections the twin drew</div>
+              </div>
+
+              <!-- 3) Inner state -->
+              <div class="viz-panel" id="viz-soul">
+                <svg viewBox="0 0 760 220" role="img" aria-label="inner state">
+                  <!-- familiarity ring -->
+                  <circle cx="150" cy="110" r="70" fill="none" stroke="#16181f" stroke-width="14"/>
+                  <circle id="viz-fam" cx="150" cy="110" r="70" fill="none" stroke="#2b59ff" stroke-width="14"
+                          stroke-linecap="round" stroke-dasharray="440" stroke-dashoffset="440"
+                          transform="rotate(-90 150 110)"/>
+                  <text x="150" y="106" fill="#e6e6e6" font-size="15" text-anchor="middle">familiarity</text>
+                  <text x="150" y="128" fill="#7fd1b9" font-size="13" text-anchor="middle">grows as you talk</text>
+                  <!-- bars: mood / rhythm / reflections -->
+                  <g font-size="12" fill="#e6e6e6">
+                    <text x="320" y="60">mood · warm, reflective</text>
+                    <rect x="320" y="68" width="380" height="10" rx="5" fill="#16181f"/>
+                    <rect class="viz-bar" x="320" y="68" width="0" height="10" rx="5" fill="#f3c969" data-w="300"/>
+                    <text x="320" y="118">rhythm · knows your hours</text>
+                    <rect x="320" y="126" width="380" height="10" rx="5" fill="#16181f"/>
+                    <rect class="viz-bar" x="320" y="126" width="0" height="10" rx="5" fill="#7fd1b9" data-w="240"/>
+                    <text x="320" y="176">reflections saved while away</text>
+                    <rect x="320" y="184" width="380" height="10" rx="5" fill="#16181f"/>
+                    <rect class="viz-bar" x="320" y="184" width="0" height="10" rx="5" fill="#c98bff" data-w="180"/>
+                  </g>
+                </svg>
+                <div class="viz-cap">The twin has an evolving inner state — familiarity, mood, your rhythms, and thoughts it saved between sessions.</div>
+              </div>
+            </div>
+            <p class="muted center-align" style="margin-top:8px;">In the app, this view is live — open it from <b>Settings → How this works</b>.</p>
+
+            <div class="small-spacer"></div>
+
             <!-- ============ How it works ============ -->
             <div><h5>How it works</h5><hr class="underline left"></div><br>
             <ul class="collection">
@@ -203,6 +327,104 @@
             <div class="spacer"></div>
         </div>
     </div>
+
+  <!-- Visualize Engine -->
+  <script>
+  (function () {
+    var SVGNS = "http://www.w3.org/2000/svg";
+
+    // ---- tabs ----
+    var tabs = document.querySelectorAll(".viz-tab");
+    var panels = { trace: "viz-trace", graph: "viz-graph", soul: "viz-soul" };
+    tabs.forEach(function (t) {
+      t.addEventListener("click", function () {
+        tabs.forEach(function (x) { x.classList.remove("active"); });
+        t.classList.add("active");
+        Object.keys(panels).forEach(function (k) {
+          document.getElementById(panels[k]).classList.toggle("active", k === t.dataset.viz);
+        });
+        if (t.dataset.viz === "trace") playTrace();
+        if (t.dataset.viz === "graph") drawGraph();
+        if (t.dataset.viz === "soul") playSoul();
+      });
+    });
+
+    // ---- 1) reasoning trace: light each step in sequence ----
+    var traceTimers = [];
+    function playTrace() {
+      var steps = document.querySelectorAll("#viz-trace .viz-step");
+      traceTimers.forEach(clearTimeout); traceTimers = [];
+      steps.forEach(function (s) { s.classList.remove("lit"); });
+      steps.forEach(function (s, i) {
+        traceTimers.push(setTimeout(function () { s.classList.add("lit"); }, 500 + i * 650));
+      });
+    }
+    var rb = document.getElementById("viz-replay");
+    if (rb) rb.addEventListener("click", playTrace);
+
+    // ---- 2) knowledge graph: simple animated node web ----
+    var graphDrawn = false;
+    function drawGraph() {
+      var svg = document.getElementById("viz-graph-svg");
+      if (!svg || graphDrawn) return;
+      graphDrawn = true;
+      var nodes = [
+        { x: 380, y: 140, r: 26, c: "#2b59ff", t: "you" },
+        { x: 200, y: 80,  r: 18, c: "#7fd1b9", t: "Rust" },
+        { x: 560, y: 90,  r: 18, c: "#7fd1b9", t: "privacy" },
+        { x: 180, y: 210, r: 15, c: "#7fd1b9", t: "local-first" },
+        { x: 580, y: 210, r: 15, c: "#c98bff", t: "async idea" },
+        { x: 380, y: 240, r: 14, c: "#c98bff", t: "call sister" },
+        { x: 300, y: 40,  r: 12, c: "#7fd1b9", t: "garden" }
+      ];
+      var edges = [[0,1],[0,2],[0,3],[0,4],[0,5],[1,3],[1,4],[2,3],[0,6]];
+      // edges first
+      edges.forEach(function (e, i) {
+        var l = document.createElementNS(SVGNS, "line");
+        var a = nodes[e[0]], b = nodes[e[1]];
+        l.setAttribute("x1", a.x); l.setAttribute("y1", a.y);
+        l.setAttribute("x2", a.x); l.setAttribute("y2", a.y); // start collapsed → animate
+        l.setAttribute("stroke", "#2a2d36"); l.setAttribute("stroke-width", "1.5");
+        svg.appendChild(l);
+        setTimeout(function () {
+          l.style.transition = "all .6s ease";
+          l.setAttribute("x2", b.x); l.setAttribute("y2", b.y);
+        }, 200 + i * 120);
+      });
+      // nodes
+      nodes.forEach(function (n, i) {
+        var g = document.createElementNS(SVGNS, "g");
+        g.style.opacity = 0; g.style.transition = "opacity .5s ease";
+        var c = document.createElementNS(SVGNS, "circle");
+        c.setAttribute("cx", n.x); c.setAttribute("cy", n.y); c.setAttribute("r", n.r);
+        c.setAttribute("fill", n.c); c.setAttribute("fill-opacity", ".9");
+        var tx = document.createElementNS(SVGNS, "text");
+        tx.setAttribute("x", n.x); tx.setAttribute("y", n.y + n.r + 14);
+        tx.setAttribute("fill", "#cfd3da"); tx.setAttribute("font-size", "12");
+        tx.setAttribute("text-anchor", "middle"); tx.textContent = n.t;
+        g.appendChild(c); g.appendChild(tx); svg.appendChild(g);
+        setTimeout(function () { g.style.opacity = 1; }, 400 + i * 140);
+      });
+    }
+
+    // ---- 3) inner state: ring + bars ----
+    function playSoul() {
+      var fam = document.getElementById("viz-fam");
+      if (fam) { fam.style.transition = "stroke-dashoffset 1.2s ease";
+                 setTimeout(function(){ fam.setAttribute("stroke-dashoffset", "150"); }, 100); }
+      document.querySelectorAll("#viz-soul .viz-bar").forEach(function (b, i) {
+        b.setAttribute("width", 0);
+        setTimeout(function () {
+          b.style.transition = "width 1s ease";
+          b.setAttribute("width", b.dataset.w);
+        }, 200 + i * 250);
+      });
+    }
+
+    // play the default (trace) once visible
+    if (document.getElementById("viz-trace")) setTimeout(playTrace, 600);
+  })();
+  </script>
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
