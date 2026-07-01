@@ -2,9 +2,18 @@
 
 <img src="https://komarev.com/ghpvc/?username=sinhaankur&label=Profile%20views&color=0e75b6&style=flat" alt="Profile views" />
 
-**Currently building [Unhosted](https://github.com/unhosted-ai) — AI that lives where you do.**
+**Principal UX Designer at Oracle · Human–AI Interaction · Toronto**
 
-Engineer-turned-designer based in Toronto. 12+ years across enterprise SaaS and cloud database tooling; currently Principal UX at Oracle on OCI Database Tools. On evenings and weekends I'm building [Unhosted](https://github.com/unhosted-ai).
+I'm a designer who ships code. 12+ years designing enterprise products across banking, supply chain, and cloud infrastructure — and I don't stop at Figma: I research the problem, design the interaction, and prototype it in real code, then hand engineering a contract they can build against. At Oracle I own the design end-to-end for cloud database operations in OCI, turning dangerous, expert-only tasks (encryption, key rotation, disaster-recovery failover) into safe, guided flows a non-expert can run.
+
+Evenings and weekends, I build [**Unhosted**](https://github.com/unhosted-ai) — where the design thinking gets to be fully public.
+
+## 🎨 How I work as a designer
+
+- **Research → design → code prototype → handoff.** I talk to real users (DBAs, operators), map the flows, and prove the interaction in working code before engineering commits to building it.
+- **Reversibility, not "safety," is my policy axis.** How I decide when an interface must pause for a human: the more irreversible the step, the more the UI slows you down and confirms.
+- **Performance is a UX concern.** A design isn't done if it janks. Example: for the [Universe Engine](https://www.sinhaankur.com) on my site, I render body/constellation labels as in-scene WebGL sprites (so they occlude at true depth instead of floating over the 3D scene), and measure/wrap their text **reflow-free** with [`@chenglou/pretext`](https://github.com/chenglou/pretext) — the canvas font engine does the layout, so building a label never forces a browser reflow, and multilingual names (CJK / Arabic / emoji) still wrap correctly.
+- **Calibrated language over raw numbers.** In my AI prototypes, confidence reads as *Likely / Unsure / Low* (exact % on hover) — because a percentage isn't a decision, a posture is.
 
 ## 🚀 Unhosted — AI that lives where you do
 
@@ -52,8 +61,8 @@ Before Unhosted, a connected trilogy of agentic-UX code prototypes exploring how
 
 ## 💼 Day job
 
-Principal UX Designer at **Oracle**, OCI Database Tools (DBaaS team) — designing AI-assisted database operations and human-in-the-loop interaction patterns for autonomous agents.
-*Feature specifics under NDA — the open-source work above is my best public demonstration of how I think about design.*
+Principal UX Designer at **Oracle**, OCI Database Tools (DBaaS team) — I own the design end-to-end for cloud database operations: encryption (TDE + OCI Vault/KMS), pluggable-database lifecycle, and Cross-Region Data Guard failover.
+*Feature specifics are under NDA — the open-source work above is my best public demonstration of how I think about design.*
 
 ## 🌐 Find me
 
