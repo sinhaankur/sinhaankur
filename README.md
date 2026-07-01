@@ -1,5 +1,7 @@
 # Hi, I'm Ankur 👋
 
+<img src="https://komarev.com/ghpvc/?username=sinhaankur&label=Profile%20views&color=0e75b6&style=flat" alt="Profile views" />
+
 **Currently building [Unhosted](https://github.com/unhosted-ai) — AI that lives where you do.**
 
 Engineer-turned-designer based in Toronto. 12+ years across enterprise SaaS and cloud database tooling; currently Principal UX at Oracle on OCI Database Tools. On evenings and weekends I'm building [Unhosted](https://github.com/unhosted-ai).
@@ -60,3 +62,4 @@ Principal UX Designer at **Oracle**, OCI Database Tools (DBaaS team) — designi
 - 💼 [LinkedIn](https://linkedin.com/in/sinhaankur27)
 - ✍️ [Medium](https://medium.com/@sinhaankur27)
 - 📬 sinhaankur827@gmail.com
+
