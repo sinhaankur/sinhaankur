@@ -6,7 +6,7 @@
 
 I'm a designer who ships code. 12+ years designing enterprise products across banking, supply chain, and cloud infrastructure — and I don't stop at Figma: I research the problem, design the interaction, and prototype it in real code, then hand engineering a contract they can build against. At Oracle I own the design end-to-end for cloud database operations in OCI, turning dangerous, expert-only tasks (encryption, key rotation, disaster-recovery failover) into safe, guided flows a non-expert can run.
 
-Evenings and weekends, I build [**Unhosted**](https://github.com/unhosted-ai) — where the design thinking gets to be fully public.
+The open-source work here is where that thinking gets to be fully public. Most of these repos are **exploration and ideas** — a working sketchbook for the human–AI seam, motion, performance, and on-device AI. A few (like [**Unhosted**](https://github.com/unhosted-ai)) are serious builds. The day job at Oracle is the anchor; everything else is how I keep sharp.
 
 ## 🎨 How I work as a designer
 
@@ -44,16 +44,37 @@ The first two are free forever. The third is the safety net. You can use Unhoste
 | [unhosted-plugins](https://github.com/unhosted-ai/unhosted-plugins) | Extensions that talk to the daemon. First: MCP server. | TS |
 | [homebrew-unhosted](https://github.com/unhosted-ai/homebrew-unhosted) | Homebrew tap. Today: RPC-enabled llama.cpp for VRAM-pooling. | Ruby |
 
-## 🛠 Other things I've made
+## 💼 Day job — the anchor
 
-- **[GovLens](https://github.com/sinhaankur/GovLens)** — Chrome extension overlaying a universal reader on any government portal across 25+ national TLDs
-- **[WatchTower](https://github.com/sinhaankur/WatchTower)** — Self-hosted deployment platform; ships across macOS / Windows / Linux / VS Code / PyPI
-- **[EMPATHEIA](https://github.com/sinhaankur/ideal-giggle)** — Multi-modal AI companion with offline-first hybrid fallback
+Principal UX Designer at **Oracle**, OCI Database Tools (DBaaS team) — I own the design end-to-end for cloud database operations: encryption (TDE + OCI Vault/KMS), pluggable-database lifecycle, and Cross-Region Data Guard failover. Turning dangerous, expert-only tasks into safe, guided flows a non-expert can run.
+*Feature specifics are under NDA — the open-source work here is my best public demonstration of how I think about design.*
 
-## 💼 Day job
+## 🧪 Exploration & ideas
 
-Principal UX Designer at **Oracle**, OCI Database Tools (DBaaS team) — I own the design end-to-end for cloud database operations: encryption (TDE + OCI Vault/KMS), pluggable-database lifecycle, and Cross-Region Data Guard failover.
-*Feature specifics are under NDA — the open-source work above is my best public demonstration of how I think about design.*
+A sketchbook, not a product shelf. These are how I pressure-test the ideas above in real code — some polished, some deliberately rough. Grouped by what they're exploring:
+
+**Human–AI seam & on-device AI**
+- [**cognitive-twin-agent**](https://github.com/sinhaankur/cognitive-twin-agent) — a local-first personal-AI runtime; the seam between a human and an agent, on hardware you own
+- [**EMPATHEIA**](https://github.com/sinhaankur/ideal-giggle) — camera-based empathetic AI companion, offline-first hybrid fallback
+- [**Probabilistic-UI**](https://github.com/sinhaankur/Probabilistic-UI) — a design vocabulary for AI surfaces that are honest about uncertainty
+
+**Engines & real-world data** (the visual, performance-first lane)
+- [**portfolio-2026**](https://github.com/sinhaankur/portfolio-2026) — the Universe / Satellite Engine: real orbits, live space data, WebGL, [sinhaankur.com](https://www.sinhaankur.com)
+- [**Firmament**](https://github.com/sinhaankur/Firmament) — point your iPhone at the real sky and understand it (iOS, Apple Intelligence)
+- [**MultiVerse**](https://github.com/sinhaankur/MultiVerse) — physics-grounded Three.js visualization of cosmological models
+- [**aero-engine-3d**](https://github.com/sinhaankur/aero-engine-3d) — interactive 3D encyclopedia of Airbus families
+
+**Apps & tools**
+- [**Kelo**](https://github.com/sinhaankur/Kelo) — private, on-device health + wealth companion (Swift, HealthKit)
+- [**Draften**](https://github.com/sinhaankur/Draften) — a unified design + diagramming workspace that opens your files (Tauri)
+- [**Structura**](https://github.com/sinhaankur/Structura) — scan real structures with your phone's depth sensor (iOS/Android)
+- [**WatchTower**](https://github.com/sinhaankur/WatchTower) — turn a computer you own into your personal cloud (self-hosted deploys)
+- [**GovLens**](https://github.com/sinhaankur/GovLens) — a universal reader overlaid on government portals across 25+ national TLDs
+
+**Explainers**
+- [**Petrodollar-Paradox**](https://github.com/sinhaankur/Petrodollar-Paradox) · [**bharat**](https://github.com/sinhaankur/bharat) · [**brainrot**](https://github.com/sinhaankur/brainrot) — interactive web explainers on economics, data, and media bias
+
+> Full map of the live projects: [sinhaankur.com/lab](https://www.sinhaankur.com/lab)
 
 ## 🌐 Find me
 
