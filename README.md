@@ -55,7 +55,7 @@ A sketchbook, not a product shelf. These are how I pressure-test the ideas above
 
 **Human–AI seam & on-device AI**
 - [**cognitive-twin-agent**](https://github.com/sinhaankur/cognitive-twin-agent) — a local-first personal-AI runtime; the seam between a human and an agent, on hardware you own
-- [**EMPATHEIA**](https://github.com/sinhaankur/ideal-giggle) — camera-based empathetic AI companion, offline-first hybrid fallback
+- [**EMPATHEIA**](https://github.com/sinhaankur/empatheia) — camera-based empathetic AI companion, offline-first hybrid fallback
 - [**Probabilistic-UI**](https://github.com/sinhaankur/Probabilistic-UI) — a design vocabulary for AI surfaces that are honest about uncertainty
 
 **Engines & real-world data** (the visual, performance-first lane)
